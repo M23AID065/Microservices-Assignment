@@ -1,0 +1,20 @@
+version: '3'
+services:
+  backend:
+    build: ../API_ServerFile
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://database:27017/microserviceDB
+    depends_on:
+      - database
+
+  database:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
