@@ -1,46 +1,50 @@
 # VirtualBox VM Setup and Microservice Deployment
 
-## Assignment Details:
+## Assignment Details
 - **Name:** Ramaraju Venkata Veereswara Lohit
 - **Roll No:** M23AID065
 
 ## Introduction
-This project involves setting up multiple virtual machines (VMs) using VMware, configuring networking between them, and deploying a microservice-based application.
+This project demonstrates the setup of Virtual Machines (VMs) using VirtualBox, network configuration, and deployment of a microservice-based application.
 
 ## Prerequisites
-- VMware Workstation
-- Ubuntu Server ISO
-- Basic knowledge of Linux commands
+- VirtualBox Installed
+- Ubuntu 20.04 or later VMs
+- Node.js & MongoDB
 
-## Installation Steps
+## VM Setup & Network Configuration
+1. Create two Virtual Machines:
+   - **VM1 (API-backend Server)**
+   - **VM2 (DB Server)**
 
-### 1. Install VMware
-Download and install VMware Workstation from the official website.
+2. Set up networking using Host-Only Adapter:
+   - API-backend Server IP: `192.168.56.101`
+   - DB Server IP: `192.168.56.102`
 
-### 2. Create Virtual Machines
-- Create two VMs: `VM1` (API-Server) with IP address : 10.0.2.15 and `VM2` (DB-Server) with IP address : 10.0.2.14
-- Assign static IPs to each VM.
+3. Enable SSH for remote access.
 
-### 3. Configure Network Between VMs
-- Set up a **Host-Only Adapter** network in VMware.
-- Use `netplan` to configure static IPs for both VMs.
+## Microservice Deployment
+The API server is built with Node.js and connects to MongoDB running on the database server.
 
-### 4. Deploy the Microservice
-- Install Node.js and MongoDB on respective VMs.
-- Clone the project repository and run the server.
+### Steps to Deploy:
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Start the service:
+   ```bash
+   node server.js
+   ```
 
-## Repository Structure
+## Docker Deployment
+For containerized deployment, use:
+```bash
+docker-compose up -d
 ```
-/microservice-project
-│── API_ServerFile/
-│── DB_ServerFile/
-│── node_modules/
-│── README.md
-│── package.json
-│── package-lock.json
-```
 
-## Testing & Validation
-- Use `curl` to verify API responses.
-- Connect to the database from the API server.
+## Testing
+Check API response:
+```bash
+curl http://192.168.56.101:5000/
+```
 
