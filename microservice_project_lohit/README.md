@@ -18,7 +18,7 @@ This project involves setting up multiple virtual machines (VMs) using VMware, c
 Download and install VMware Workstation from the official website.
 
 ### 2. Create Virtual Machines
-- Create two VMs: `VM1` (API-Server) with IP address : 10.0.2.15 and `VM2` (DB-Server).
+- Create two VMs: `VM1` (API-Server) with IP address : 10.0.2.15 and `VM2` (DB-Server) with IP address : 10.0.2.14
 - Assign static IPs to each VM.
 
 ### 3. Configure Network Between VMs
